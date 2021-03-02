@@ -1,21 +1,19 @@
 
   <mat-card
   style="margin: 10px; width: 400px" class="example-card"
-  *ngFor="let product of products"
+  *ngFor="let product of cart"
   >
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{product.name}}</mat-card-title>
     <mat-card-subtitle>{{product.price}}</mat-card-subtitle>
   </mat-card-header>
-  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <mat-card-content>
     <p>
-      Number of items in cart : {{product.name}}
+      Number of items in cart : {{product.itemQuantity}}
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="addItem(product)" mat-raised-button><mat-icon>add</mat-icon></button>
-    <button (click)="deleteItem(product)" color="warn" mat-raised-button><mat-icon>add</mat-icon></button>
+    <button (click)="addItem(product)" mat-raised-button>Add</button>
+    <button (click)="deleteItem(product)" color="warn" mat-raised-button>Delete</button>
   </mat-card-actions>
 </mat-card>

@@ -6,35 +6,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  products : any
+  cart : any
   constructor(){
-      this.products = [{
+      this.cart = [{
+        id:1,
           name : "Shampoo",
           price: 123,
           image : "August 23",
-          totalItems:10
+          totalItems:10,
+          itemQuantity:1
       },
       {
+        id:2,
           name : "Shampoo",
           price: 123,
           image : "August 23",
-          totalItems:10
+          totalItems:10,
+          itemQuantity:1
       },
       {
+        id:3,
           name : "Shampoo",
           price: 123,
           image : "August 23",
-          totalItems:10
+          totalItems:10,
+          itemQuantity:1
       },
     ]
   };
   ngOnInit(): void {
-    this.products
+    this.cart
   }
    addItem(product: any) {
-     console.log(product)
+     this.cart.forEach((item, index) => {
+      if (item.id == product.id) {
+        this.cart[index].itemQuantity++
+      }
+    });
   }
    deleteItem(product: any) {
-     console.log(product)
+     this.cart.forEach((item, index) => {
+      if (item.id == product.id) {
+        if(this.cart[index].itemQuantity>=1)
+        this.cart[index].itemQuantity--
+      }
+    });
   }
 }
