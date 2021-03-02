@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-   welcome : string;
   products : any
   constructor(){
-      this.welcome = "Display List using ngFor in Angular 2"
       this.products = [{
           name : "Shampoo",
           price: 123,
@@ -28,63 +26,15 @@ export class CartComponent implements OnInit {
           image : "August 23",
           totalItems:10
       },
-    {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      },
-      {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      },
-      {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      },
-      {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      },
-      {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      },
-      {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      },
-      {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      },
-      {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      },
-      {
-          name : "Shampoo",
-          price: 123,
-          image : "August 23",
-          totalItems:10
-      }
     ]
   };
   ngOnInit(): void {
     this.products
+  }
+   addItem(product: any) {
+     console.log(product)
+  }
+   deleteItem(product: any) {
+     console.log(product)
   }
 }

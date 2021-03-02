@@ -15,7 +15,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>Increase</button>
-    <button color="warn" mat-raised-button>Decrease</button>
+    <button (click)="addItem(product)" mat-raised-button><mat-icon>add</mat-icon></button>
+    <button (click)="deleteItem(product)" color="warn" mat-raised-button><mat-icon>add</mat-icon></button>
   </mat-card-actions>
 </mat-card>
