@@ -43,7 +43,10 @@ export class CartComponent implements OnInit {
    addItem(product: any) {
      this.cart.forEach((item, index) => {
       if (item.id == product.id) {
-        this.cart[index].itemQuantity++
+        if(this.cart[index].itemQuantity < item.totalItems)
+         this.cart[index].itemQuantity++
+        else
+        console.log("No more Allowed");
       }
     });
     this.updateResult()

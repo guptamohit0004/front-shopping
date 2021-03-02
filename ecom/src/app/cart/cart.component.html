@@ -31,6 +31,9 @@
           <b>Total Price of Items</b>: {{ totalCart.totalPrice }}
         </p>
       </mat-card-content>
+  <mat-card-actions>
+    <button (click)="addItem(product)" color="warn"  mat-raised-button>Place Order</button>
+  </mat-card-actions>
     </mat-card>
   </div>
 </div>
