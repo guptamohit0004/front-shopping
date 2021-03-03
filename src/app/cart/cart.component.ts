@@ -29,7 +29,11 @@ export class CartComponent implements OnInit {
    }
    placeOrder(){
       const headers = { 'content-type': 'application/json'}
+      this.cart.forEach((item, index) => {
+        this.cart[index].itemQuantity = this.cart[index].itemsBooked;
+      });
       const body=JSON.stringify(this.cart);
+      console.log(body)
       this.http.post('http://localhost:8080/update', body,{'headers':headers})
    }
 }
