@@ -75,7 +75,4 @@ export class cartService {
     }
     return this.totalCart;
   }
-  placeOrder(){
-    console.log(this.cart);
-  }
 }

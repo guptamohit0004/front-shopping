@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { cartService } from '../service/cartService';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,7 @@ import { cartService } from '../service/cartService';
 export class CartComponent implements OnInit {
   cart : any
   totalCart:any
-  constructor(private cartServiceData: cartService){
+  constructor(private cartServiceData: cartService,private http: HttpClient){
   }
   ngOnInit(): void {
     this.cart=this.cartServiceData.cart
@@ -27,7 +28,8 @@ export class CartComponent implements OnInit {
     this.cartServiceData.updateResult();
    }
    placeOrder(){
-     this.cartServiceData.placeOrder()
-    this.cartServiceData.updateResult();
+      const headers = { 'content-type': 'application/json'}
+      const body=JSON.stringify(this.cart);
+      this.http.post('http://localhost:8080/update', body,{'headers':headers})
    }
 }
