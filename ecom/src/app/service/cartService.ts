@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 
 export class cartService {
   totalCart:any
-  cart:any =[{
+  products:any =[{
           id:1,
           name : "Shampoo",
           price: 100,
@@ -31,7 +31,13 @@ export class cartService {
           itemQuantity:2
       },
     ]
+  cart:any =[
+    ]
   constructor() {}
+  addToCart(product:any){
+    this.cart.push(product)
+    this.updateResult()
+  }
      addItem(product: any) {
      this.cart.forEach((item, index) => {
       if (item.id == product.id) {
