@@ -11,31 +11,34 @@ export class cartService {
           name : "Shampoo",
           price: 100,
           image : "August 23",
-          totalItems:10,
-          itemQuantity:2
+          totalItems:10
       },
       {
         id:2,
           name : "Soap",
           price: 200,
           image : "August 23",
-          totalItems:10,
-          itemQuantity:1
+          totalItems:10
       },
       {
         id:3,
           name : "Hair Band",
           price: 300,
           image : "August 23",
-          totalItems:10,
-          itemQuantity:2
+          totalItems:10
       },
     ]
   cart:any =[
     ]
   constructor() {}
   addToCart(product:any){
-    this.cart.push(product)
+    for (let x in this.cart) {
+        if (this.cart.hasOwnProperty(x) && this.cart[x].id === product.id) {
+            alert("Item ALready Present in Cart!!!")
+            return;
+        }
+    }
+    this.cart.push({...product,itemQuantity:1})
     this.updateResult()
   }
      addItem(product: any) {
