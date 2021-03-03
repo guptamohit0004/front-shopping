@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -7,21 +8,21 @@ import { Injectable } from '@angular/core';
 export class cartService {
   totalCart:any
   products:any =[{
-          id:1,
+          itemId:1,
           name : "Shampoo",
           price: 100,
           image : "August 23",
           totalItems:10
       },
       {
-        id:2,
+        itemId:2,
           name : "Soap",
           price: 200,
           image : "August 23",
           totalItems:10
       },
       {
-        id:3,
+        itemId:3,
           name : "Hair Band",
           price: 300,
           image : "August 23",
@@ -30,10 +31,10 @@ export class cartService {
     ]
   cart:any =[
     ]
-  constructor() {}
+  constructor(private http: HttpClient) {}
   addToCart(product:any){
     for (let x in this.cart) {
-        if (this.cart.hasOwnProperty(x) && this.cart[x].id === product.id) {
+        if (this.cart.hasOwnProperty(x) && this.cart[x].itemId=== product.itemId) {
             alert("Item ALready Present in Cart!!!")
             return;
         }
@@ -43,7 +44,7 @@ export class cartService {
   }
      addItem(product: any) {
      this.cart.forEach((item, index) => {
-      if (item.id == product.id) {
+      if (item.itemId== product.itemId) {
         if(this.cart[index].itemQuantity < item.totalItems)
          this.cart[index].itemQuantity++
         else
@@ -54,7 +55,7 @@ export class cartService {
   }
    deleteItem(product: any) {
      this.cart.forEach((item, index) => {
-      if (item.id == product.id) {
+      if (item.itemId== product.itemId) {
         if(this.cart[index].itemQuantity>=1)
         this.cart[index].itemQuantity--
       }
@@ -72,5 +73,9 @@ export class cartService {
       totalPrice:totalPrice,
       totalItems:totalItems
     }
+    return this.totalCart;
+  }
+  placeOrder(){
+    console.log(this.cart);
   }
 }
